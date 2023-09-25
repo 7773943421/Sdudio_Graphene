@@ -1,0 +1,101 @@
+<!-- Example in your component's HTML file -->
+<div class="social-icons">
+    <a href="https://www.facebook.com/" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+    <a href="https://www.linkedin.com/" target="_blank">
+      <i class="fa fa-linkedin"></i>
+    </a>
+    <a href="https://twitter.com/" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+    <a href="https://www.instagram.com/" target="_blank">
+      <i class="fa fa-instagram"></i>
+    </a>
+  </div>
+  
+
+
+
+<nav class="header">
+    <ul class="horizontal-menu">
+      <li *ngFor="let item of navbar">
+        <a [routerLink]="['/' + item.id]">{{ item.name }}</a>
+        <ul *ngIf="item.child" class="sub-menu">
+          <li *ngFor="let subItem of item.child">
+            <a [routerLink]="['/' + subItem.id]">{{ subItem.name }}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="scrollable-container">
+        <div class="col-md-4" *ngFor="let product of products">
+          <div class="card mb-4">
+            <img [src]="product.image" alt="{{ product.title }}" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <p class="card-text">{{ product.description }}</p>
+              <p class="card-text">Price: ${{ product.price }}</p>
+              <a href="#" class="btn btn-primary">Add to Cart</a> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  <footer>
+    <div class="newsletter">
+      <div data-aos="fade-up" data-aos-offset="200">
+        <h2>Suscribe our newsletter</h2>
+        <p>We're a team of non-cynics who truly care for our work.</p>
+      </div>
+      <div
+        class="ntext"
+        data-aos="fade-up-right"
+        data-aos-offset="100"
+        data-aos-delay="200"
+      >
+       
+      </div>
+    </div>
+
+    <div class="f-contact">
+      
+
+
+<div>
+
+</div>
+
+     <div class="container">
+    <form (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"  class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"  class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" [(ngModel)]="message" class="form-control" rows="4" required></textarea>
+      </div>
+     
+    </form>
+  </div>
+
+      
+    </div>
+  </footer>
